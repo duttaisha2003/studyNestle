@@ -62,20 +62,23 @@ function AdminDashboard() {
             </Link>
           </nav>
 
-          <button
+     <button
+  onClick={async () => {
+    try {
+      await fetch(`${backendUrl}adminlogout`, {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
 
-            onClick={() => navigate("/adminLogin")}
-
-            onClick={async () => {
-              // FIX: call backend to clear the admin cookie, then redirect
-              await fetch(`${backendUrl}adminlogout`, { method: "POST", credentials: "include" });
-              navigate("/adminLogin");
-            }}
-
-            className="bg-green-200 text-black px-4 py-3 m-4 rounded-lg hover:bg-green-900 hover:text-white"
-          >
-            Logout
-          </button>
+    navigate("/adminLogin");
+  }}
+  className="bg-green-200 text-black px-4 py-3 m-4 rounded-lg hover:bg-green-900 hover:text-white"
+>
+  Logout
+</button>
         </aside>
 
         {/* Main Content */}

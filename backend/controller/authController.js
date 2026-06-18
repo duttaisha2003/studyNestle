@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 const registerUser=async(req,res)=>{
     try{
-        console.log("Received registration data:", req.body);
+        // console.log("Received registration data:", req.body);
         validateuser(req.body);
 
         //req.body.password=await bcrypt.hash(req.body.password,10);
