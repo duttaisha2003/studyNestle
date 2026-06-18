@@ -43,10 +43,10 @@ const loginUser=async(req,res)=>{
 
         const token = jwt.sign({ id:people.id,emailId:people.emailId}, process.env.JWT_KEY,{expiresIn:"10h"});
 
-        res.cookie("token",token,{httpOnly:true,secure:true, sameSite: "lax"});
+        res.cookie("token",token,{httpOnly:true,secure:true, sameSite: "none"});
 
         // FIX: secure:false so cookie works on localhost (HTTP). Set to true in production (HTTPS).
-        res.cookie("token",token,{httpOnly:true,secure:false, sameSite: "lax"});
+        res.cookie("token",token,{httpOnly:true,secure:true, sameSite: "none"});
 
       res.status(200).json({ message: "Login Successful" ,loggedIn:true});
     }catch(err){

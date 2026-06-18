@@ -27,7 +27,7 @@ const loginAdmin = async (req, res) => {
       { expiresIn: "10h" }
     );
 
-    res.cookie("token", token, { httpOnly: true, secure: false, sameSite: "lax" });
+    res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" });
     res.status(200).json({
       success: true,
       message: "Login Successful",
