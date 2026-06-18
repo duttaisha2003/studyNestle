@@ -51,7 +51,7 @@ const logoutAdmin = (req, res) => {
 // Fetch pending materials
 const pendingMaterial = async (req, res) => {
   try {
-    const pendingMaterials = await StudyMaterial.find({ isApprove: false })
+    const pendingMaterials = await StudyMaterial.find({ isApprove: false }).populate("uploadedBy", "name emailId");
       
      return res.status(200).json({
       success: true,

@@ -11,7 +11,7 @@ const AdminPending = () => {
       try {
         const res = await fetch(`${backendUrl}pending`, {
           method: "GET",
-          credentials: "include", // ✅ Send cookies for admin auth
+          credentials: "include", 
           headers: { "Content-Type": "application/json" },
         });
 
@@ -25,7 +25,7 @@ const AdminPending = () => {
     };
 
     fetchPendingMaterials();
-    const interval = setInterval(fetchPendingMaterials, 5000); // ✅ Auto-refresh every 5s
+    const interval = setInterval(fetchPendingMaterials, 5000); 
     return () => clearInterval(interval);
   }, []);
 
